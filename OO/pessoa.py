@@ -14,13 +14,16 @@ class Pessoa:
     @classmethod
     def nome_e_atributos_de_classe(cls):
         return f'\nAcesso aos atributos da classe: \n{cls} - olhos = {cls.olhos}'
-
+class Homem(Pessoa):
+    pass
 
 if __name__ == '__main__':
     olivia = Pessoa(nome='Olivia')
     lara = Pessoa(nome='Lara')
     jamile = Pessoa(olivia, nome='Jamile')
-    diogo = Pessoa(nome='Diogo', idade=30)
+    # como a classe home herda os atributos de pessoa
+    # é possível alterar que continua funcionando normalmente
+    diogo = Homem(nome='Diogo', idade=30)
     print(Pessoa.cumprimentar(diogo))
     print(id(jamile))
     print(jamile.nome)
@@ -52,3 +55,9 @@ if __name__ == '__main__':
     print(Pessoa.metodo_estatico(), diogo.metodo_estatico())
     print(Pessoa.nome_e_atributos_de_classe(), jamile.nome_e_atributos_de_classe())
 
+    pessoa = Pessoa("Anonimo")
+    print(isinstance(pessoa, Pessoa))
+    print(isinstance(pessoa, Homem))
+
+    print(isinstance(diogo, Pessoa))
+    print(isinstance(diogo, Homem))
