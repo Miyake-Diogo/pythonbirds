@@ -17,13 +17,18 @@ class Pessoa:
 class Homem(Pessoa):
     pass
 
+class Mutante(Pessoa):
+    olhos = 6 # sobrepoe o atributo da classe pai para o objeto
+    pass
+
 if __name__ == '__main__':
     olivia = Pessoa(nome='Olivia')
     lara = Pessoa(nome='Lara')
     jamile = Pessoa(olivia, nome='Jamile')
     # como a classe home herda os atributos de pessoa
     # é possível alterar que continua funcionando normalmente
-    diogo = Homem(nome='Diogo', idade=30)
+    # diogo = Homem(nome='Diogo', idade=30)
+    diogo = Mutante(nome='Diogo', idade=30)
     print(Pessoa.cumprimentar(diogo))
     print(id(jamile))
     print(jamile.nome)
@@ -61,3 +66,5 @@ if __name__ == '__main__':
 
     print(isinstance(diogo, Pessoa))
     print(isinstance(diogo, Homem))
+    # Modificação de atributos herdados
+    print(diogo.olhos)
