@@ -19,5 +19,19 @@ if __name__ == '__main__':
     for filho in jamile.filhos:
         print(filho.nome)
     print(diogo.idade)
+    diogo.sobrenome = 'Miyake' # atributo somente para este objeto
+    print(diogo.sobrenome)
+    # Atributo para verificar todos os atributos de instancia (init e dinamicos)
+    # __dict__
+    print(jamile.__dict__)
+    print(diogo.__dict__)
+    # removendo um atributo
+    del jamile.filhos
+    print(jamile.__dict__)
+    # Obs.: não é boa prática... o ideal é usar no __init__
+    # É muito util para casos onde se deve trazer algo como em um app web durante uma requisição, pois só terá trazido naquele instante
+
+
+
 
 
