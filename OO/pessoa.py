@@ -8,6 +8,13 @@ class Pessoa:
 
     def cumprimentar(self):
         return f'Olá {id(self)}'
+    @staticmethod
+    def metodo_estatico():
+        return 'decorators'
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'\nAcesso aos atributos da classe: \n{cls} - olhos = {cls.olhos}'
+
 
 if __name__ == '__main__':
     olivia = Pessoa(nome='Olivia')
@@ -41,4 +48,7 @@ if __name__ == '__main__':
     print("Note que é deletado o atributo do objeto e não da classe: \n",diogo.__dict__)
     print(id(Pessoa.olhos),id(jamile.olhos),id(diogo.olhos))
 
+    # para metodos estaticos
+    print(Pessoa.metodo_estatico(), diogo.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), jamile.nome_e_atributos_de_classe())
 
