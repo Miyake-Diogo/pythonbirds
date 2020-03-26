@@ -7,7 +7,7 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá, meu nome é {self.nome}'
     @staticmethod
     def metodo_estatico():
         return 'decorators'
@@ -15,11 +15,15 @@ class Pessoa:
     def nome_e_atributos_de_classe(cls):
         return f'\nAcesso aos atributos da classe: \n{cls} - olhos = {cls.olhos}'
 class Homem(Pessoa):
-    pass
+    def cumprimentar(self):
+        cumprimentar_da_classe_pai = super().cumprimentar()
+        return f'{cumprimentar_da_classe_pai} Aperto de mão'
 
 class Mutante(Pessoa):
     olhos = 6 # sobrepoe o atributo da classe pai para o objeto
-    pass
+    def cumprimentar(self):
+        cumprimentar_da_classe_pai = super().cumprimentar()
+        return f'{cumprimentar_da_classe_pai},balança a cabeça e Aperto de garras'
 
 if __name__ == '__main__':
     olivia = Pessoa(nome='Olivia')
@@ -68,3 +72,4 @@ if __name__ == '__main__':
     print(isinstance(diogo, Homem))
     # Modificação de atributos herdados
     print(diogo.olhos)
+    print(diogo.cumprimentar())
